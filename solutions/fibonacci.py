@@ -1,15 +1,48 @@
 def fibonacci(num):
+    """
+    Returns the nth Fib number.
 
-    if num < 2:
-        return num
+    Parameters:
+    n (int): The index in the Fib sequence.
+
+    Returns:
+    int: The nth Fib number.
+    """
+
+
+
+    # Base cases
+    if num == 0:
+        return 0
+    elif num == 1:
+        return 1
     
-    last_two = (0, 1)
+    # Starting values for the Fib sequence
+    a, b = 0, 1
 
-    for i in range(0, num - 1, 1):
-        sum = last_two[0] + last_two[1]
-        last_two = (last_two[1], sum)
+    # Calculate Fib up to the nth number
+    for _ in range(2, num + 1): 
+        # The next Fib number is the sum of the previous two
+        next_fib = a + b
+        # Update a and b for the next iteration
+        a, b = b, next_fib
+    
+    return b
 
-    return last_two[1]
+
+
+
+
+    # if num < 2:
+    #     return num
+    
+    # last_two = (0, 1)
+
+    # for i in range(0, num - 1, 1):
+    #     sum = last_two[0] + last_two[1]
+    #     last_two = (last_two[1], sum)
+
+    # return last_two[1]
 
 if __name__ == "__main__":
   
